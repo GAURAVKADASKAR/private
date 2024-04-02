@@ -251,20 +251,24 @@ def profile(request):
         return render(request,'profile.html')
      else:
          pass
-
+ 
+import time
 def feedback(request):
     if request.method=="POST":
         data=request.POST
         name=data.get('name')
         email=data.get('email')
         message=data.get('message')
-        feed.objects.create(
-            name=name,
-            email=email,
-            message=message
+        data=feed.objects.create(
+        name=name,
+        email=email,
+        message=message
         )
-        return render(request,'contact.html')
-
+        data.save()
+        time.sleep(1)
+        return redirect('/index/')
+    return render(request,'contact.html')
+    
 
 def mainprofiledata(request):
     data=profiledata.objects.all()
@@ -363,3 +367,8 @@ def enddata(request,id):
     qq.save()
     data.delete()
     return redirect('/beds/')
+
+
+def pdata(request,id):
+    user=filldata.objects.filter(id=id)
+    return render(request,'pdata.html',context={'data':user})

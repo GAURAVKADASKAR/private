@@ -24,6 +24,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('info/',hospitalinfo),
     path('end/<id>/',enddata),
+    path('pdata/<id>/',pdata),
     path('discharge/<id>/',discharge),
     path('information/',informationdata),
     path('',enter),

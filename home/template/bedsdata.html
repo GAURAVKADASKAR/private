@@ -95,18 +95,18 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <table class="table table-hover col-12">
+          <table class="table table-hover col-20">
             <tr>
               <th scope="col">S.no</th>
-              <th scope="col">Hospital name</th>
-              <th scope="col">Bed_id</th>
-              <th scope="col">Ward_number</th>
-              <th scope="col">Room_number</th>
+              <th scope="col">Hospital Name</th>
+              <th scope="col">Bed Id</th>
+              <th scope="col">Ward Number</th>
+              <th scope="col">Room Number</th>
               <th scope="col">Disease</th>
-              <th scope="col">Bed_type</th>
-              <th scope="col">patient_name</th>
-              <th scope="col">patient_age</th>
-              <th scope="col">patient_gender</th>
+              <th scope="col">Bed Type</th>
+              <th scope="col">Patient Name</th>
+              <th scope="col">Patient Age</th>
+              <th scope="col">Patient Gender</th>
               <th scope="col">Action</th>
             </tr>
             {% for i in data %}
@@ -122,15 +122,15 @@
               <td>{{i.patient_age}}</td>
               <td>{{i.patient_gender}}</td>
               <td>
-                <a href="/delete_patient/{{i.id}}/"
-                  ><button class="btn btn-primary">Discharge</button></a
-                >
-                <br>
-                <br>
-                
                 <a href="/discharge/{{i.id}}/"
                   ><button class="btn btn-primary">Accept</button></a
                 >
+                <br>
+                <br>
+                <a href="/delete_patient/{{i.id}}/"
+                  ><button class="btn btn-danger">Reject</button></a
+                >
+                
               </td>
             </tr>
             {% endfor %}
